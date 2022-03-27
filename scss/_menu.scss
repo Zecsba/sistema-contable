@@ -5,10 +5,20 @@
         width: 100%;
         height: 100vh;
         display: flex;
-        justify-content: center;
         flex-direction: column;
-        border-radius: 0 16px 16px 0;
-        background: #fff;
+        background: linear-gradient(217deg, #e2e1e1 0%, #706a6a 100%);
+
+        .box-img{
+            width: 80%;
+            height: 26%;
+            margin: 40px auto;
+
+            .logo{
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+        
 
         .list__inside{
             .nav_link:hover{
