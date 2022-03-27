@@ -8,6 +8,11 @@ body {
   font-family: sans-serif;
   display: flex; }
 
+.regresar {
+  width: 33px;
+  height: 33px;
+  margin: 20px; }
+
 .nav {
   width: 300px; }
   .nav .list {
@@ -105,3 +110,37 @@ img {
     font-weight: 700;
     margin-top: 3rem;
     text-align: center; }
+
+.main .box-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .main .box-table .box-table-text {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px; }
+    .main .box-table .box-table-text h2 {
+      margin: auto 0;
+      font-size: 300%; }
+    .main .box-table .box-table-text .boton-table {
+      width: 300px;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #909090;
+      cursor: pointer; }
+    .main .box-table .box-table-text .boton-table:hover {
+      background: #727272;
+      color: #fbfbfb; }
+  .main .box-table .table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 70%; }
+    .main .box-table .table th {
+      padding: 1em;
+      border: 2px solid #303440; }
+    .main .box-table .table .contain {
+      border: 2px solid #303440;
+      height: 60vh; }

@@ -11,5 +11,13 @@ body{
     display: flex;
 }
 
+.regresar{
+    width: 33px;
+    height: 33px;
+
+    margin: 20px
+}
+
 @import "_menu";
+@import "_card";
 @import "_table";
