@@ -93,8 +93,13 @@
             <div class="box-table-text">
                 <h2>Factura de venta</h2>
     
-                <button class="boton-table">CREAR UNA NUEVA FACTURA</button>
+                <button class="boton-table" id="boton">CREAR UNA NUEVA FACTURA</button>
             </div>
+
+
+            <input type="text" id="input">
+
+
             <table class="table">
                 <tr class="enbacezado">
                   <th>Numero</th>
@@ -103,13 +108,12 @@
                   <th>Vencimiento</th>
                   <th>Total</th>
                   <th>Cobrado</th>
-                  <th>Por Cobrar</th>
                   <th>Estado</th>
     
                 </tr >
-                <tr class="contain">
+                <tbody class="contain">
                     <!-- TD -->
-                </tr>
+                </tbody>
               </table>
         </div>
         
@@ -117,7 +121,7 @@
 
     </main>
 
-
+    <script src="../app.js"></script>
     <script src="../menu.js"></script>
 </body>
 </html>
