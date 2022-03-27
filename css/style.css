@@ -5,7 +5,8 @@
   box-sizing: border-box; }
 
 body {
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  display: flex; }
 
 .nav {
   width: 300px; }
@@ -23,7 +24,7 @@ body {
         width: 100% !important;
         height: 100% !important; }
     .nav .list .list__inside .nav_link:hover {
-      background: #f6f8fa; }
+      background: linear-gradient(217deg, #e2e1e1 0%, #706a6a 100%); }
     .nav .list .list_item {
       list-style-type: none;
       width: 100%;
@@ -59,3 +60,48 @@ body {
 img {
   width: 20px;
   height: 20px; }
+
+.main {
+  width: 100%;
+  background-color: rgba(254, 244, 244, 0.73); }
+  .main .cards {
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    .main .cards .card {
+      width: 25%;
+      margin: 30px;
+      background: linear-gradient(217deg, #e2e1e1 0%, #706a6a 100%);
+      border-radius: 10px;
+      text-align: center;
+      padding: 20px; }
+      .main .cards .card h2 {
+        margin-bottom: 6px;
+        font-size: 1.6rem; }
+      .main .cards .card .card-contenido .card-img {
+        width: 40px;
+        height: 40px; }
+      .main .cards .card .card-contenido p {
+        margin-top: 10px;
+        margin-bottom: 7px;
+        font-size: 1.2rem; }
+      .main .cards .card .card-contenido button {
+        width: 100%;
+        height: 30px;
+        border-radius: 10px;
+        background-color: #303440;
+        color: #fff;
+        font-size: 1.2rem;
+        border: none;
+        outline: none;
+        cursor: pointer; }
+      .main .cards .card .card-contenido a {
+        text-decoration: none;
+        color: #fff; }
+  .main .title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    text-align: center; }

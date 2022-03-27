@@ -8,6 +8,8 @@
 
 body{
     font-family: sans-serif;
+    display: flex;
 }
 
 @import "_menu";
+@import "_table";
