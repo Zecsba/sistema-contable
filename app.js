@@ -1,42 +1,82 @@
+// Modal
+const close = document.querySelector('#close');
+const modal = document.querySelector('.modal')
 const button = document.querySelector('#boton');
+
+// Tabla IU
 const tabla = document.querySelector('.contain')
 const input = document.querySelector('#input')
 
+// Inputs
 
-let factura = []
-console.log(factura)
+const numeroF_Input = document.querySelector('#numeroF')
+const nombreInput = document.querySelector('#nombre')
+const fechaC_Input = document.querySelector('#fechaC')
+const fechaV_Input = document.querySelector('#fechaV')
+const totalInput = document.querySelector('#total')
+const cobrarInput = document.querySelector('#cobrar')
+const rectificarInput = document.querySelector('#rectificar')
+
+
 cargarEventListenerts()
 function cargarEventListenerts(){
 
-    button.addEventListener('click', crearFactura) 
+    // Eventos modal
+    button.addEventListener('click', crearFactura);
+
+    close.addEventListener('click', (e) => {
+        e.preventDefault()
+        modal.classList.remove('modal--show')
+    });
+
+    // Inputs
+
+    numeroF_Input.addEventListener('input', crearFactura);
+    nombreInput.addEventListener('input', crearFactura);
+    fechaC_Input.addEventListener('input', crearFactura);
+    fechaV_Input.addEventListener('input', crearFactura);
+    totalInput.addEventListener('input', crearFactura);
+    cobrarInput.addEventListener('input', crearFactura);
+    rectificarInput.addEventListener('input', crearFactura);
+
+}
+
+// Objeto con la informacion de la factura
+
+const factura = {
+    numeroF: '',
+    nombre: '',
+    fechaC: '',
+    fechaV: '',
+    total: '',
+    cobrar: '',
+    rectificar: ''
 }
 
 
-function crearFactura(){
-    const numero = prompt('Igrese el numero de factura')
-    const cliente = prompt(`Ingresa tu nombre`)
-    const creacion = prompt('Ingresa la fecha de creacion')
-    const vencimiento = prompt('Ingresa la fecha de venciemiento')
-    const total = prompt('Ingresa el total a pagar')
-    const cobrado = prompt('Ingresa si esta cobrado o no')
-    const estado = prompt('Ingresa si esta aprobada, activa o vencida')
 
-    factura.push(numero, cliente, creacion, vencimiento, total, cobrado, estado)
+function crearFactura(e){
+    e.preventDefault()
+    modal.classList.add('modal--show')
 
-    imprimirFactura(numero, cliente, creacion, vencimiento, total, cobrado, estado)
+    factura[e.target.name] = e.target.value
+
+    console.log(factura)
 }
 
-function imprimirFactura(numero, cliente, creacion, vencimiento, total, cobrado, estado){
-    const clientes = document.createElement('tr')
-    clientes.innerHTML = `
-    <td>${numero}</td>
-    <td>${cliente}</td>
-    <td>${creacion}</td>
-    <td>${vencimiento}</td>
-    <td>${total}</td>
-    <td>${cobrado}</td>
-    <td>${estado}</td>
-    `
-    tabla.appendChild(clientes)
+
+
+// function imprimirFactura(numero, cliente, creacion, vencimiento, total, cobrado, estado){
+//     const clientes = document.createElement('tr')
+//     clientes.innerHTML = `
+//     <td>${numero}</td>
+//     <td>${cliente}</td>
+//     <td>${creacion}</td>
+//     <td>${vencimiento}</td>
+//     <td>${total}</td>
+//     <td>${cobrado}</td>
+//     <td>${estado}</td>
+//     `
+//     tabla.appendChild(clientes)
     
-}
+// }

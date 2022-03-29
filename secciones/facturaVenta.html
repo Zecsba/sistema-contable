@@ -93,7 +93,7 @@
             <div class="box-table-text">
                 <h2>Factura de venta</h2>
     
-                <button class="boton-table" id="boton">CREAR UNA NUEVA FACTURA</button>
+                <a class="boton-table" id="boton">CREAR UNA NUEVA FACTURA</a>
             </div>
 
 
@@ -120,6 +120,34 @@
         
 
     </main>
+
+
+    <section class="modal ">
+        <div class="modal__container">
+
+            <a id="close"> X </a>
+            <form class="form">
+                <label for="">Igrese el numero de factura</label>
+                <input type="text" id="numeroF" name="numeroF">
+                <label for="">Ingresa el nombre a quien va la factura</label>
+                <input type="text" id="nombre" name="nombre">
+                <label for="">Ingresa la fecha de creacion</label>
+                <input type="date" id="fechaC" name="fechaC">
+                <label for="">Ingresa la fecha de venciemiento</label>
+                <input type="date" id="fechaV" name="fechaV">
+                <label for="">Ingresa el total a pagar</label>
+                <input type="text" id="total" name="total">
+                <label for="">Ingresa si esta cobrado o no</label>
+                <input type="text" id="cobrar" name="cobrar">
+                <label for="">Ingresa si esta aprobada, activa o vencida</label>
+                <input type="text" id="rectificar" name="rectificar">    
+
+                <div class="agregar">
+                    <button type="submit" class="button__form">Crear factura</button>
+                </div>
+            </form>
+        </div>
+    </section>
 
     <script src="../app.js"></script>
     <script src="../menu.js"></script>
