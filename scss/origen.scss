@@ -22,3 +22,25 @@ body{
 @import "_card";
 @import "_table";
 @import "_crearFormVenta";
+
+
+.card-error{
+    width: 70%;
+    height: 100%;
+    color: red;
+    text-align: center;
+    border-radius: 6px;
+    margin: 5px auto;
+    padding: 11px;
+    background: rgba(250, 177, 177, 0.671);
+}
+
+.card-success{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: greenyellow;
+}

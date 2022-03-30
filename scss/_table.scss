@@ -16,20 +16,29 @@
                 font-size: 300%;
             }
 
-            .boton-table{
-                width: 300px;
+            .box-button{
+                display: flex;
+                align-items: center;
                 padding: 5px;
-                margin: 10px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                background: rgb(144, 144, 144);
-                cursor: pointer;
-            }
 
-            .boton-table:hover{
-                background: rgb(114, 114, 114);
-                color: rgb(251, 251, 251);
+                .boton-table{
+                    width: 300px;
+                    padding: 5px;
+                    text-align: center;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    background: rgb(144, 144, 144);
+                    cursor: pointer;
+                    text-decoration: none;
+                    color: #000000;
+                }
+    
+                .boton-table:hover{
+                    background: rgb(114, 114, 114);
+                    color: rgb(251, 251, 251);
+                }
             }
+            
         }
         
         .table{
@@ -51,7 +60,4 @@
             }     
         }
     }
-    
-
-    
 }

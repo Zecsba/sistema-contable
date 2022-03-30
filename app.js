@@ -1,5 +1,4 @@
 
-
 // Tabla IU
 const tabla = document.querySelector('.contain')
 const input = document.querySelector('#input')
@@ -14,7 +13,7 @@ const formaPago = document.querySelector('#formaPago')
 const plazo = document.querySelector('#plazo')
 const fechaV_Input = document.querySelector('#fechaV')
 
-const button_form = document.querySelector('.button_form');
+const button_form = document.querySelector('#validar');
 
 
 cargarEventListenerts()
@@ -51,26 +50,35 @@ class Facutra {
     constructor(){
         this.facturas = []
     }
+
+    agregarFactura(factura){
+        this.facturas = [...this.facturas, factura]
+
+        console.log(this.facturas)
+    }
 }
 
 class UI {
     imprimirAlerta(mensaje, tipo){
         // Crear el div
         const divMensaje = document.createElement('div');
-        divMensaje.classList.add('card')
 
         // Agregar clase en base al tipo de error
         if(tipo === 'error'){
-            divMensaje.classList.add('card-error')
+            divMensaje.classList.add('card-error');
         }else{
-            divMensaje.classList.add('card-success')
+            divMensaje.classList.add('card-success');
         }
 
         // Mensaje de error
         divMensaje.textContent = mensaje;
 
         // Agregar al DOM
-        numeroF_Input.appendChild(divMensaje);
+        document.querySelector('.div_form').appendChild(divMensaje, document.querySelector('.div_form').firstChild);
+
+        setTimeout(() => {
+            divMensaje.remove();
+        }, 2000)
     }
 }
 
@@ -80,23 +88,26 @@ const ui = new UI()
 // Funciones
 
 function crearFactura(e){
-    e.preventDefault()
-
     factura[e.target.name] = e.target.value
-
-    console.log(factura)
 }
 
 // Valida y agreaga la factura
 function nuevaFactura(e){
     e.preventDefault();
 
-    const {numeroF, nombre, fechaC, fechaV, total, cobrar, rectificar} = factura
+    const {contacto, identificacion, telefono, fechaC, formaPago, plazo, fechaV} = factura
 
-    if(numeroF == "" || nombre == "" || fechaC == "" || fechaV == "" || total == "" || cobrar == "" || rectificar == ""){
+    if(contacto===''  || identificacion==='' || telefono==='' || fechaC==='' || formaPago==='' || plazo==='' || fechaV===''){
         ui.imprimirAlerta('Todos los campos son obligatorios', 'error')
 
         return;
     }
 
+    // generar id unico
+
+    factura.id = Date.now()
+
+    // Crear una nueva cita
+
+    administrarFacturas.agregarFactura({...factura})
 }
