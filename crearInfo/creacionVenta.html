@@ -23,7 +23,7 @@
                     </div>
                     <ul class="list__show">
                         <li class="list__inside">
-                            <a href="facturaVenta.html" class="nav_link nav_link--inside">Factura de venta</a>
+                            <a href="../secciones/facturaVenta.html" class="nav_link nav_link--inside">Factura de venta</a>
                         </li> 
                     </ul>
                 </li>
@@ -37,7 +37,7 @@
 
                     <ul class="list__show">
                         <li class="list__inside">
-                            <a href="facturaCompra.html" class="nav_link nav_link--inside">Factura de compra</a>
+                            <a href="../secciones/facturaCompra.html" class="nav_link nav_link--inside">Factura de compra</a>
                         </li>
                     </ul>                       
                 </li>
@@ -51,7 +51,7 @@
 
                     <ul class="list__show">
                         <li class="list__inside">
-                            <a href="contactos.html" class="nav_link nav_link--inside">Proveedor y Cliente</a>
+                            <a href="../secciones/contactos.html" class="nav_link nav_link--inside">Proveedor y Cliente</a>
                         </li>
                     </ul>          
                 </li>
@@ -65,7 +65,7 @@
 
                     <ul class="list__show">
                         <li class="list__inside">
-                            <a href="inventario.html" class="nav_link nav_link--inside">Inventario</a>
+                            <a href="../secciones/inventario.html" class="nav_link nav_link--inside">Inventario</a>
                         </li>
                     </ul>                      
                 </li>
@@ -78,7 +78,7 @@
                     </div>
                     <ul class="list__show">
                         <li class="list__inside">
-                            <a href="nomina.html" class="nav_link nav_link--inside">Empleados</a>
+                            <a href="../secciones/nomina.html" class="nav_link nav_link--inside">Empleados</a>
                         </li> 
                     </ul>                     
                 </li>                                
@@ -87,38 +87,63 @@
     </header>
 
     <main class="main">
-        <a href="../index.html"> <img src="../assets/angulo-doble-izquierda.svg" alt="" class="regresar"></a>
+        <a href="../secciones/facturaVenta.html"> <img src="../assets/angulo-doble-izquierda.svg" alt="" class="regresar"></a>
+        
+        <div class="div_form">
+            <form class="form">
 
-        <div class="box-table">
-            <div class="box-table-text">
-                <h2>Factura de venta</h2>
+                <div class="first_head">
+                    <div class="box_input">
+                        <label for="">Contacto *</label>
+                        <input type="text" id="contacto" name="contacto">
+                    </div>
     
-                <a class="boton-table" id="boton" href="../crearInfo/creacionVenta.html">CREAR UNA NUEVA FACTURA</a>
-            </div>
-
-
-            <!-- <input type="text" id="input"> -->
-
-
-            <table class="table">
-                <tr class="enbacezado">
-                  <th>Numero</th>
-                  <th>Cliente</th>
-                  <th>Creacion</th>
-                  <th>Vencimiento</th>
-                  <th>Total</th>
-                  <th>Cobrado</th>
-                  <th>Estado</th>
-    
-                </tr >
-                <tbody class="contain">
-                    <!-- TD -->
-                </tbody>
-              </table>
-        </div>      
+                    <div class="box_input">
+                        <label for="">Identificacion</label>
+                        <input type="text" id="identificacion" name="identificacion">
+                    </div>
+                    
+                    <div class="box_input">
+                        <label for="">Telefono</label>
+                        <input type="text" id="telefono" name="telefono">
+                    </div>
+                </div>
+                
+                <div class="second_head">
+                    <div class="box_input">
+                        <label for="">Fecha *</label>
+                        <input type="date" id="fechaC" name="fechaC">
+                    </div>
+                    
+                    <div class="box_input">
+                        <label for="">Forma de pago</label>
+                        <select name="formaPago" id="formaPago">
+                            <option value="contado">Contado</option>
+                            <option value="credito">Credito</option>
+                        </select>
+                    </div>
+                    
+                    <div class="box_input">
+                        <label for="">Plazo de pago</label>
+                        <input type="text" id="plazo" name="plazo">
+                    </div>
+                    
+                    <div class="box_input">
+                        <label for="">Vencimiento *</label>
+                        <input type="date" id="fechaV" name="fechaV"> 
+                    </div>
+                </div>
+                
+                
+                 
+                <div class="agregar">
+                    <button type="submit" class="button_form">Crear factura</button>
+                </div>
+            </form>
+        </div>
     </main>
 
-    <!-- <script src="../app.js"></script> -->
+    <script src="../app.js"></script>
     <script src="../menu.js"></script>
 </body>
 </html>

@@ -1,0 +1,77 @@
+.div_form{
+    width: 80%;
+    margin: auto;
+    .form{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+
+        .first_head{
+            width: 50%;
+
+            .box_input{
+                width: 100%;
+
+                label{
+                    width: 100%;
+                    text-align: left;
+                    font-size: 1.2rem;
+                    color: #000;
+                    margin-bottom: 0.5rem;
+                }
+
+                input{
+                    width: 50%;
+                    height: 1.5rem;
+                    border: 1px solid #000;
+                    border-radius: 0.5rem;
+                    padding: 0.5rem;
+                    font-size: 1.2rem;
+                    color: #000;
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+
+        .second_head{
+            width: 50%;
+
+            .box_input{
+                width: 100%;
+
+                select{
+                    width: 50%;
+                    height: 1.5rem;
+                    border: 1px solid #000;
+                    border-radius: 0.5rem;
+                    font-size:12px;
+                    color: #000;
+                    margin-bottom: 0.5rem;
+                }
+
+                label{
+                    width: 100%;
+                    text-align: left;
+                    font-size: 1.2rem;
+                    color: #000;
+                    margin-bottom: 0.5rem;
+                }
+
+                input{
+                    width: 50%;
+                    height: 1.5rem;
+                    border: 1px solid #000;
+                    border-radius: 0.5rem;
+                    padding: 0.5rem;
+                    font-size: 1.2rem;
+                    color: #000;
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+        .agregar{
+            width: 30%;
+        }
+    }
+}

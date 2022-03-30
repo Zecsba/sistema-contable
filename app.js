@@ -1,7 +1,4 @@
-// Modal
-const close = document.querySelector('#close');
-const modal = document.querySelector('.modal')
-const button = document.querySelector('#boton');
+
 
 // Tabla IU
 const tabla = document.querySelector('.contain')
@@ -9,74 +6,97 @@ const input = document.querySelector('#input')
 
 // Inputs
 
-const numeroF_Input = document.querySelector('#numeroF')
-const nombreInput = document.querySelector('#nombre')
+const contacto = document.querySelector('#contacto')
+const identificacion = document.querySelector('#identificacion')
+const telefono = document.querySelector('#telefono')
 const fechaC_Input = document.querySelector('#fechaC')
+const formaPago = document.querySelector('#formaPago')
+const plazo = document.querySelector('#plazo')
 const fechaV_Input = document.querySelector('#fechaV')
-const totalInput = document.querySelector('#total')
-const cobrarInput = document.querySelector('#cobrar')
-const rectificarInput = document.querySelector('#rectificar')
+
+const button_form = document.querySelector('.button_form');
 
 
 cargarEventListenerts()
 function cargarEventListenerts(){
-
-    // Eventos modal
-    button.addEventListener('click', crearFactura);
-
-    close.addEventListener('click', (e) => {
-        e.preventDefault()
-        modal.classList.remove('modal--show')
-    });
-
     // Inputs
 
-    numeroF_Input.addEventListener('input', crearFactura);
-    nombreInput.addEventListener('input', crearFactura);
+    contacto.addEventListener('input', crearFactura);
+    identificacion.addEventListener('input', crearFactura);
+    telefono.addEventListener('input', crearFactura);
     fechaC_Input.addEventListener('input', crearFactura);
+    formaPago.addEventListener('input', crearFactura);
+    plazo.addEventListener('input', crearFactura);
     fechaV_Input.addEventListener('input', crearFactura);
-    totalInput.addEventListener('input', crearFactura);
-    cobrarInput.addEventListener('input', crearFactura);
-    rectificarInput.addEventListener('input', crearFactura);
+
+    button_form.addEventListener('submit', nuevaFactura);
 
 }
 
 // Objeto con la informacion de la factura
 
 const factura = {
-    numeroF: '',
-    nombre: '',
+    contacto: '',
+    identificacion: '',
+    telefono: '',
     fechaC: '',
-    fechaV: '',
-    total: '',
-    cobrar: '',
-    rectificar: ''
+    formaPago: '',
+    plazo: '',
+    fechaV: ''
 }
 
+// clases
 
+class Facutra {
+    constructor(){
+        this.facturas = []
+    }
+}
+
+class UI {
+    imprimirAlerta(mensaje, tipo){
+        // Crear el div
+        const divMensaje = document.createElement('div');
+        divMensaje.classList.add('card')
+
+        // Agregar clase en base al tipo de error
+        if(tipo === 'error'){
+            divMensaje.classList.add('card-error')
+        }else{
+            divMensaje.classList.add('card-success')
+        }
+
+        // Mensaje de error
+        divMensaje.textContent = mensaje;
+
+        // Agregar al DOM
+        numeroF_Input.appendChild(divMensaje);
+    }
+}
+
+const administrarFacturas = new Facutra()
+const ui = new UI()
+
+// Funciones
 
 function crearFactura(e){
     e.preventDefault()
-    modal.classList.add('modal--show')
 
     factura[e.target.name] = e.target.value
 
     console.log(factura)
 }
 
+// Valida y agreaga la factura
+function nuevaFactura(e){
+    e.preventDefault();
 
+    const {numeroF, nombre, fechaC, fechaV, total, cobrar, rectificar} = factura
 
-// function imprimirFactura(numero, cliente, creacion, vencimiento, total, cobrado, estado){
-//     const clientes = document.createElement('tr')
-//     clientes.innerHTML = `
-//     <td>${numero}</td>
-//     <td>${cliente}</td>
-//     <td>${creacion}</td>
-//     <td>${vencimiento}</td>
-//     <td>${total}</td>
-//     <td>${cobrado}</td>
-//     <td>${estado}</td>
-//     `
-//     tabla.appendChild(clientes)
-    
-// }
+    if(numeroF == "" || nombre == "" || fechaC == "" || fechaV == "" || total == "" || cobrar == "" || rectificar == ""){
+        ui.imprimirAlerta('Todos los campos son obligatorios', 'error')
+
+        return;
+    }
+
+}
