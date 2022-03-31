@@ -93,34 +93,85 @@
             <div class="box-table-text">
                 <h2>Factura de venta</h2>
                 
-                <div class="box-button">
+                <!-- <div class="box-button">
                     <a class="boton-table" id="boton" href="../crearInfo/creacionVenta.html">CREAR UNA NUEVA FACTURA</a>
-                </div>
+                </div> -->
             </div>
 
 
             <!-- <input type="text" id="input"> -->
 
+            <div class="div_form">
+
+                <form class="form"  id="validar">
+    
+                    <div class="first_head">
+                        <div class="box_input">
+                            <label for="">Contacto *</label>
+                            <input type="text" id="contacto" name="contacto">
+                        </div>
+        
+                        <div class="box_input">
+                            <label for="">Identificacion</label>
+                            <input type="text" id="identificacion" name="identificacion">
+                        </div>
+                        
+                        <div class="box_input">
+                            <label for="">Telefono</label>
+                            <input type="text" id="telefono" name="telefono">
+                        </div>
+                    </div>
+                    
+                    <div class="second_head">
+                        <div class="box_input">
+                            <label for="">Fecha *</label>
+                            <input type="date" id="fechaC" name="fechaC">
+                        </div>
+                        
+                        <div class="box_input">
+                            <label for="">Forma de pago</label>
+                            <select name="formaPago" id="formaPago">
+                                <option value="contado">Contado</option>
+                                <option value="credito">Credito</option>
+                            </select>
+                        </div>
+                        
+                        <div class="box_input">
+                            <label for="">Plazo de pago</label>
+                            <input type="text" id="plazo" name="plazo">
+                        </div>
+                        
+                        <div class="box_input">
+                            <label for="">Vencimiento *</label>
+                            <input type="date" id="fechaV" name="fechaV"> 
+                        </div>
+                    </div>
+                    
+                    
+                     
+                    <div class="agregar">
+                        <button type="submit" class="button_form">Crear factura</button>
+                    </div>
+                </form>
+            </div>
 
             <table class="table">
-                <tr class="enbacezado">
-                  <th>Numero</th>
-                  <th>Cliente</th>
-                  <th>Creacion</th>
-                  <th>Vencimiento</th>
-                  <th>Total</th>
-                  <th>Cobrado</th>
-                  <th>Estado</th>
-    
-                </tr >
-                <tbody class="contain">
-                    <!-- TD -->
-                </tbody>
+                    <tr class="enbacezado">
+                        <th>Numero</th>
+                        <th>Cliente</th>
+                        <th>Creacion</th>
+                        <th>Vencimiento</th>
+                        <th>Total</th>
+                        <th>Cobrado</th>
+                        <th>Estado</th>
+                      </tr >
               </table>
+
+                
         </div>      
     </main>
 
-    <!-- <script src="../app.js"></script> -->
+    <script src="../app.js"></script>
     <script src="../menu.js"></script>
 </body>
 </html>

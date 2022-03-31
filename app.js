@@ -1,7 +1,7 @@
 
 // Tabla IU
-const tabla = document.querySelector('.contain')
-const input = document.querySelector('#input')
+const tabla = document.querySelector('.table')
+// const input = document.querySelector('#input')
 
 // Inputs
 
@@ -80,6 +80,44 @@ class UI {
             divMensaje.remove();
         }, 2000)
     }
+
+    imprimirFactura({facturas}){
+
+        this.limpiarHTML()
+        
+        facturas.forEach(factura => {
+            const {contacto, identificacion, telefono, fechaC, formaPago, plazo, fechaV, id} = factura
+
+            const divFactura = document.createElement('tbody');
+            divFactura.classList.add('contain');
+            divFactura.dataset.id = id;
+
+            // Scripting de la cita
+
+            const tableFinish = document.createElement('tr');
+            tableFinish.innerHTML = `
+            <td> ${identificacion}</td>
+            <td> ${contacto}</td>
+            <td>${fechaC}</td>
+            <td>${fechaV}</td>
+            <td>${formaPago}</td>
+            <td>${plazo}</td>
+            <td>${telefono} </td>
+            `;    
+
+            // Agregar la tabla al divFactura
+            divFactura.appendChild(tableFinish);
+
+            // Agregar el div al DOM
+            tabla.insertBefore(divFactura, tabla.firstChild);
+        })
+    }
+
+    limpiarHTML(){
+        while(tabla.firstChild){
+            tabla.removeChild(tabla.firstChild);
+        }
+    }
 }
 
 const administrarFacturas = new Facutra()
@@ -110,4 +148,22 @@ function nuevaFactura(e){
     // Crear una nueva cita
 
     administrarFacturas.agregarFactura({...factura})
+
+    // Reiniciar el objeto
+    reiniciarObjeto()
+
+    // Reiniciar el formulario
+    button_form.reset()
+
+    ui.imprimirFactura(administrarFacturas)
+}
+
+function reiniciarObjeto(){
+    factura.contacto = ''
+    factura.identificacion = ''
+    factura.telefono = ''
+    factura.fechaC = ''
+    factura.formaPago = ''
+    factura.plazo = ''
+    factura.fechaV = ''
 }
