@@ -1,6 +1,5 @@
-
 // Tabla IU
-const tabla = document.querySelector('.table')
+const tabla = document.querySelector('#table-agregar')
 // const input = document.querySelector('#input')
 
 // Inputs
@@ -88,25 +87,24 @@ class UI {
         facturas.forEach(factura => {
             const {contacto, identificacion, telefono, fechaC, formaPago, plazo, fechaV, id} = factura
 
-            const divFactura = document.createElement('tbody');
-            divFactura.classList.add('contain');
+            const divFactura = document.createElement('div');
+            // divFactura.classList.add('contain');
             divFactura.dataset.id = id;
 
             // Scripting de la cita
 
-            const tableFinish = document.createElement('tr');
-            tableFinish.innerHTML = `
-            <td> ${identificacion}</td>
-            <td> ${contacto}</td>
-            <td>${fechaC}</td>
-            <td>${fechaV}</td>
-            <td>${formaPago}</td>
-            <td>${plazo}</td>
-            <td>${telefono} </td>
+            const tableFinish = document.querySelector('#table-agregar');
+            tableFinish.innerHTML += `
+            <tr class="contain">
+                <td> ${identificacion}</td>
+                <td> ${contacto}</td>
+                <td>${fechaC}</td>
+                <td>${fechaV}</td>
+                <td>${formaPago}</td>
+                <td>${plazo}</td>
+                <td>${telefono} </td>
+            </tr>         
             `;    
-
-            // Agregar la tabla al divFactura
-            divFactura.appendChild(tableFinish);
 
             // Agregar el div al DOM
             tabla.insertBefore(divFactura, tabla.firstChild);
