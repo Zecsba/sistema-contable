@@ -131,14 +131,15 @@
                         <div class="box_input">
                             <label for="">Forma de pago</label>
                             <select name="formaPago" id="formaPago">
+                                <option value="0">Selecciona</option>
                                 <option value="contado">Contado</option>
                                 <option value="credito">Credito</option>
                             </select>
                         </div>
                         
                         <div class="box_input">
-                            <label for="">Plazo de pago</label>
-                            <input type="text" id="plazo" name="plazo">
+                            <label for="">Total a pagar</label>
+                            <input type="text" id="totalPagar" name="totalPagar">
                         </div>
                         
                         <div class="box_input">
@@ -157,13 +158,14 @@
 
             <table class="table">
                     <tr class="enbacezado">
-                        <th>Numero</th>
+                        <th>Identificacion</th>
                         <th>Cliente</th>
+                        <th>Telefono</th>
                         <th>Creacion</th>
                         <th>Vencimiento</th>
                         <th>Total</th>
-                        <th>Cobrado</th>
-                        <th>Estado</th>
+                        <th>Forma de pago</th>
+                        <th>Acciones</th>
                       </tr>
 
                       <tbody id="table-agregar">

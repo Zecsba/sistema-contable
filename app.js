@@ -9,7 +9,7 @@ const identificacion = document.querySelector('#identificacion')
 const telefono = document.querySelector('#telefono')
 const fechaC_Input = document.querySelector('#fechaC')
 const formaPago = document.querySelector('#formaPago')
-const plazo = document.querySelector('#plazo')
+const plazo = document.querySelector('#totalPagar')
 const fechaV_Input = document.querySelector('#fechaV')
 
 const button_form = document.querySelector('#validar');
@@ -39,7 +39,7 @@ const factura = {
     telefono: '',
     fechaC: '',
     formaPago: '',
-    plazo: '',
+    totalPagar: '',
     fechaV: ''
 }
 
@@ -54,6 +54,10 @@ class Facutra {
         this.facturas = [...this.facturas, factura]
 
         console.log(this.facturas)
+    }
+
+    eliminarFactura(id){
+        this.facturas = this.facturas.filter(factura => factura.id != id)
     }
 }
 
@@ -85,29 +89,55 @@ class UI {
         this.limpiarHTML()
         
         facturas.forEach(factura => {
-            const {contacto, identificacion, telefono, fechaC, formaPago, plazo, fechaV, id} = factura
+            const {contacto, identificacion, telefono, fechaC, formaPago, totalPagar, fechaV, id} = factura
 
-            const divFactura = document.createElement('div');
-            // divFactura.classList.add('contain');
+            const divFactura = document.createElement('tr');
+            divFactura.classList.add('contain');
             divFactura.dataset.id = id;
 
-            // Scripting de la cita
+            const div_contacto = document.createElement('td');
+            div_contacto.textContent = `${contacto}`;
 
-            const tableFinish = document.querySelector('#table-agregar');
-            tableFinish.innerHTML += `
-            <tr class="contain">
-                <td> ${identificacion}</td>
-                <td> ${contacto}</td>
-                <td>${fechaC}</td>
-                <td>${fechaV}</td>
-                <td>${formaPago}</td>
-                <td>${plazo}</td>
-                <td>${telefono} </td>
-            </tr>         
-            `;    
+            const div_identificacion = document.createElement('td');
+            div_identificacion.textContent = `${identificacion}`;
+
+            const div_telefono = document.createElement('td');
+            div_telefono.textContent = `${telefono}`;
+            
+            const div_fechaC = document.createElement('td');
+            div_fechaC.textContent = `${fechaC}`;
+
+            const div_formaPago = document.createElement('td');
+            div_formaPago.textContent = `${formaPago}`;
+            
+            const div_totalPagar = document.createElement('td');
+            div_totalPagar.textContent = `${totalPagar}`;
+
+            const div_fechaV = document.createElement('td');
+            div_fechaV.textContent = `${fechaV}`;
+
+            
+
+            const btnEliminar = document.createElement('button');
+            btnEliminar.innerHTML = `
+            Eliminar <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>`
+
+            btnEliminar.onclick = () => eliminarFactura(id)
+
+            divFactura.appendChild(div_contacto);
+            divFactura.appendChild(div_identificacion);
+            divFactura.appendChild(div_telefono);
+            divFactura.appendChild(div_fechaC);
+            divFactura.appendChild(div_formaPago);
+            divFactura.appendChild(div_totalPagar);
+            divFactura.appendChild(div_fechaV);
+            divFactura.appendChild(btnEliminar);
+
 
             // Agregar el div al DOM
-            tabla.insertBefore(divFactura, tabla.firstChild);
+            tabla.insertBefore(divFactura , tabla.firstChild );
         })
     }
 
@@ -131,14 +161,15 @@ function crearFactura(e){
 function nuevaFactura(e){
     e.preventDefault();
 
-    const {contacto, identificacion, telefono, fechaC, formaPago, plazo, fechaV} = factura
+    const {contacto, identificacion, telefono, fechaC, formaPago, totalPagar, fechaV} = factura
 
-    if(contacto===''  || identificacion==='' || telefono==='' || fechaC==='' || formaPago==='' || plazo==='' || fechaV===''){
-        ui.imprimirAlerta('Todos los campos son obligatorios', 'error')
+    if(contacto===''  || identificacion==='' || telefono==='' || fechaC==='' || formaPago ==='' || formaPago == 0||totalPagar==='' || fechaV===''){
+        ui.imprimirAlerta('Todos los campos son obligatorios o no has selecionado forma de pago', 'error')
 
         return;
     }
 
+    
     // generar id unico
 
     factura.id = Date.now()
@@ -164,4 +195,18 @@ function reiniciarObjeto(){
     factura.formaPago = ''
     factura.plazo = ''
     factura.fechaV = ''
+}
+
+function eliminarFactura(id){
+
+    console.log(id)
+    // Elimnar la factura
+    administrarFacturas.eliminarFactura(id)
+
+    // Mostrar mensaje
+    ui.imprimirAlerta('Factura eliminada')
+
+    // Refrescar la tabla
+
+    ui.imprimirFactura(administrarFacturas)
 }
