@@ -1,0 +1,63 @@
+// Cartas de mensajes succes o error
+
+.card-error{
+    width: 70%;
+    height: 100%;
+    color: red;
+    text-align: center;
+    border-radius: 6px;
+    margin: 5px auto;
+    padding: 11px;
+    background: rgba(250, 177, 177, 0.671);
+}
+
+.card-success{
+    width: 70%;
+    height: 100%;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 6px;
+    margin: 5px auto;
+    padding: 11px;
+    background: rgba(177, 250, 183, 0.671);
+}
+
+// Botones de acciones
+
+.btn-eliminar{
+    width: 44%;
+    height: auto;
+    background: red;
+    display: inline;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    margin: 5px;
+    
+    svg{
+        width: 20px;
+    }
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.btn-editar{
+    width: 44%;
+    height: auto;
+    background: greenyellow;
+    display: inline;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    margin: 5px;
+    
+    svg{
+        width: 20px;
+    }
+
+    &:hover{
+        cursor: pointer;
+    }
+}
