@@ -1,8 +1,6 @@
 // Tabla IU
 const tabla = document.querySelector('#table-agregar')
 
-// const input = document.querySelector('#input')
-
 // Inputs
 
 const contactoInput = document.querySelector('#contacto')
@@ -20,6 +18,11 @@ let editanto;
 
 cargarEventListenerts()
 function cargarEventListenerts(){
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        ui.imprimirFactura(administrarFacturas)
+    })
+    
     // Inputs
 
     contactoInput.addEventListener('input', crearFactura);
@@ -55,14 +58,21 @@ class Facutra {
 
     agregarFactura(factura){
         this.facturas = [...this.facturas, factura]
+
+        localStorage.setItem('facturas', JSON.stringify(this.facturas))
     }
 
     eliminarFactura(id){
         this.facturas = this.facturas.filter(factura => factura.id != id)
+
+        localStorage.setItem('facturas', JSON.stringify(this.facturas))
+
     }
 
     editarFactura(facturaActualizada){
         this.facturas = this.facturas.map(factura => factura.id === facturaActualizada.id ? facturaActualizada : factura)
+
+        localStorage.setItem('facturas', JSON.stringify(this.facturas))
     }
 }
 
@@ -92,8 +102,10 @@ class UI {
     imprimirFactura({facturas}){
 
         this.limpiarHTML()
-        
-        facturas.forEach(factura => {
+
+        const users = JSON.parse(localStorage.getItem('facturas'))
+
+        Object.values(users).forEach(factura => {
             const {contacto, identificacion, telefono, fechaC, formaPago, totalPagar, fechaV, id} = factura
 
             const divFactura = document.createElement('tr');
