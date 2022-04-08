@@ -1,6 +1,8 @@
 // Tabla IU
 const tabla = document.querySelector('#table-agregar')
 
+// const input = document.querySelector('#input')
+
 // Inputs
 
 const contactoInput = document.querySelector('#contacto')
@@ -18,11 +20,6 @@ let editanto;
 
 cargarEventListenerts()
 function cargarEventListenerts(){
-    
-    document.addEventListener('DOMContentLoaded', () => {
-        ui.imprimirFactura(administrarFacturas)
-    })
-    
     // Inputs
 
     contactoInput.addEventListener('input', crearFactura);
@@ -49,30 +46,30 @@ const factura = {
     fechaV: ''
 }
 
+// Variable
+
+let recuperar = JSON.parse(localStorage.getItem('facturas')) === null ? [] : JSON.parse(localStorage.getItem('facturas'))
+
 // clases
 
 class Facutra {
-    constructor(){
-        this.facturas = []
-    }
+    static facturas = [...recuperar]
 
     agregarFactura(factura){
-        this.facturas = [...this.facturas, factura]
+        Facutra.facturas = [...Facutra.facturas, factura]
+        localStorage.setItem('facturas', JSON.stringify(Facutra.facturas))
 
-        localStorage.setItem('facturas', JSON.stringify(this.facturas))
+        ui.imprimirFactura(Facutra.facturas)
     }
 
-    eliminarFactura(id){
-        this.facturas = this.facturas.filter(factura => factura.id != id)
-
-        localStorage.setItem('facturas', JSON.stringify(this.facturas))
-
+    eliminarFactura(id){       
+        Facutra.facturas = Facutra.facturas.filter(factura => factura.id !== id)
+        localStorage.setItem('facturas', JSON.stringify(Facutra.facturas))
     }
 
     editarFactura(facturaActualizada){
-        this.facturas = this.facturas.map(factura => factura.id === facturaActualizada.id ? facturaActualizada : factura)
-
-        localStorage.setItem('facturas', JSON.stringify(this.facturas))
+        Facutra.facturas = Facutra.facturas.map(factura => factura.id === facturaActualizada.id ? facturaActualizada : factura)
+        localStorage.setItem('facturas', JSON.stringify(Facutra.facturas))
     }
 }
 
@@ -99,39 +96,36 @@ class UI {
         }, 3000)
     }
 
-    imprimirFactura({facturas}){
-
+    imprimirFactura(recuperar){
+        
         this.limpiarHTML()
-
-        const users = JSON.parse(localStorage.getItem('facturas'))
-
-        Object.values(users).forEach(factura => {
-            const {contacto, identificacion, telefono, fechaC, formaPago, totalPagar, fechaV, id} = factura
+        
+        recuperar.map((factura) => {
 
             const divFactura = document.createElement('tr');
             divFactura.classList.add('contain');
-            divFactura.dataset.id = id;
+            divFactura.dataset.id = factura.id;
 
             const div_contacto = document.createElement('td');
-            div_contacto.textContent = `${contacto}`;
+            div_contacto.textContent = `${factura.contacto}`;
 
             const div_identificacion = document.createElement('td');
-            div_identificacion.textContent = `${identificacion}`;
+            div_identificacion.textContent = `${factura.identificacion}`;
 
             const div_telefono = document.createElement('td');
-            div_telefono.textContent = `${telefono}`;
+            div_telefono.textContent = `${factura.telefono}`;
             
             const div_fechaC = document.createElement('td');
-            div_fechaC.textContent = `${fechaC}`;
+            div_fechaC.textContent = `${factura.fechaC}`;
 
             const div_formaPago = document.createElement('td');
-            div_formaPago.textContent = `${formaPago}`;
+            div_formaPago.textContent = `${factura.formaPago}`;
             
             const div_totalPagar = document.createElement('td');
-            div_totalPagar.textContent = `${totalPagar}`;
+            div_totalPagar.textContent = `${factura.totalPagar}`;
 
             const div_fechaV = document.createElement('td');
-            div_fechaV.textContent = `${fechaV}`;
+            div_fechaV.textContent = `${factura.fechaV}`;
 
             
             // Añade un boton para eliminar
@@ -142,7 +136,7 @@ class UI {
             <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>`
 
-            btnEliminar.onclick = () => eliminarFactura(id)
+            btnEliminar.onclick = () => eliminarFactura(factura.id)
 
             // Añade un boton para editar
             const btnEditar = document.createElement('button');
@@ -167,7 +161,7 @@ class UI {
 
             // Agregar el div al DOM
             tabla.insertBefore(divFactura , tabla.firstChild );
-        })
+})
     }
 
     limpiarHTML(){
@@ -223,9 +217,8 @@ function nuevaFactura(e){
     // Mensaje de agregado
 
     ui.imprimirAlerta('Factura agregada')
-    }
-    
-    
+
+    }  
 
     // Reiniciar el objeto
     reiniciarObjeto()
@@ -233,7 +226,7 @@ function nuevaFactura(e){
     // Reiniciar el formulario
     button_form.reset()
 
-    ui.imprimirFactura(administrarFacturas)
+    ui.imprimirFactura(Facutra.facturas)
 }
 
 function reiniciarObjeto(){
@@ -255,10 +248,12 @@ function eliminarFactura(id){
 
     // Refrescar la tabla
 
-    ui.imprimirFactura(administrarFacturas)
+    ui.imprimirFactura(Facutra.facturas)
 }
 
 function editarFactura(editar){
+
+    console.log(editar)
     const {contacto, identificacion, telefono, fechaC, formaPago, totalPagar, fechaV, id} = editar;
 
     // Llenar los inputs
@@ -287,3 +282,5 @@ function editarFactura(editar){
 
     editanto = true;
 }
+
+ui.imprimirFactura(Facutra.facturas)
