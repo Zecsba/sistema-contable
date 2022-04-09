@@ -143,7 +143,10 @@ img {
   .main .box-table .table {
     margin: auto;
     border-collapse: collapse;
-    width: 70%; }
+    width: 80%; }
+    .main .box-table .table #table-agregar {
+      text-align: center;
+      font-size: 1.1rem; }
     .main .box-table .table th {
       padding: 1em;
       border: 2px solid #303440; }

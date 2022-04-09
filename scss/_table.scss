@@ -47,7 +47,13 @@
         .table{
             margin: auto;
             border-collapse: collapse;
-            width: 70%;
+            width: 80%;
+
+            #table-agregar{
+                text-align: center;
+                font-size: 1.1rem;
+            }
+
             th{
                 padding: 1em;
                 border: 2px solid #303440;
