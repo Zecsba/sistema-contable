@@ -10,7 +10,7 @@ class UI {
 
         // Operador logio AND
 
-        tipo === 'error' ? divMensaje.classList.add('mensaje', 'error') : divMensaje.classList.add('mensaje', 'correcto');
+        tipo === 'error' ? divMensaje.classList.add('card-error') : divMensaje.classList.add('card-success');
 
         // if(tipo === 'error'){
         //     divMensaje.classList.add('card-error');

@@ -1,4 +1,4 @@
-import UI from "./Iu.js";
+import {ui} from "../funciones.js";
 
 let recuperar = JSON.parse(localStorage.getItem('facturas')) === null ? [] : JSON.parse(localStorage.getItem('facturas'))
 

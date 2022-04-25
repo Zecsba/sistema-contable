@@ -3,8 +3,8 @@ import UI from "./classes/Iu.js";
 
 import {contactoInput, identificacionInput, telefonoInput, fechaC_Input, formaPagoInput, plazoInput, fechaV_Input, button_form} from "./selectores.js";
 
-const administrarFacturas = new Facutra()
-const ui = new UI()
+export const administrarFacturas = new Facutra()
+export const ui = new UI()
 
 let editanto;
 
