@@ -97,7 +97,6 @@ export function eliminarFactura(id){
 
 export function editarFactura(editar){
 
-    console.log(editar)
     const {contacto, identificacion, telefono, fechaC, formaPago, totalPagar, fechaV, id} = editar;
 
     // Llenar los inputs

@@ -7,11 +7,16 @@ class UI {
         const divMensaje = document.createElement('div');
 
         // Agregar clase en base al tipo de error
-        if(tipo === 'error'){
-            divMensaje.classList.add('card-error');
-        }else{
-            divMensaje.classList.add('card-success');
-        }
+
+        // Operador logio AND
+
+        tipo === 'error' ? divMensaje.classList.add('mensaje', 'error') : divMensaje.classList.add('mensaje', 'correcto');
+
+        // if(tipo === 'error'){
+        //     divMensaje.classList.add('card-error');
+        // }else{
+        //     divMensaje.classList.add('card-success');
+        // }
 
         // Mensaje de error
         divMensaje.textContent = mensaje;
