@@ -31,13 +31,31 @@ export function nuevaFactura(e){
     const {contacto, identificacion, telefono, fechaC, formaPago, totalPagar, fechaV} = factura
 
     if(contacto===''  || identificacion==='' || telefono==='' || fechaC==='' || formaPago ==='' || formaPago == 0||totalPagar==='' || fechaV===''){
-        ui.imprimirAlerta('Todos los campos son obligatorios o no has selecionado forma de pago', 'error')
+        // ui.imprimirAlerta('Todos los campos son obligatorios o no has selecionado forma de pago', 'error')
+
+        Swal.fire({
+            title: 'Todos los campos son obligatorios o no has selecionado forma de pago',
+            icon: 'warning',
+            confirmButtonText: 'Entiendo',
+            timer: 2000,
+            timerProgressBar: true,
+            toast: true,
+            position: 'top-end',
+        })
 
         return;
     }
 
     if(editanto){
-        ui.imprimirAlerta('Editado correctamente')
+        Swal.fire({
+            title: 'Editado correctamente',
+            icon: 'success',
+            confirmButtonText: 'Entiendo',
+            timer: 2000,
+            timerProgressBar: true,
+            toast: true,
+            position: 'top-end',
+        })
 
         // Agregar al objeto de la factura
 
@@ -60,7 +78,15 @@ export function nuevaFactura(e){
 
     // Mensaje de agregado
 
-    ui.imprimirAlerta('Factura agregada')
+    Swal.fire({
+        title: 'Factura agregada correctamente',
+        icon: 'success',
+        confirmButtonText: 'Entiendo',
+        timer: 2000,
+        timerProgressBar: true,
+        toast: true,
+        position: 'top-end',
+    })
 
     }  
 
@@ -88,7 +114,15 @@ export function eliminarFactura(id){
     administrarFacturas.eliminarFactura(id)
 
     // Mostrar mensaje
-    ui.imprimirAlerta('Factura eliminada')
+    Swal.fire({
+        title: 'Se elimino la factura correctamente',
+        icon: 'success',
+        confirmButtonText: 'Entiendo',
+        timer: 2000,
+        timerProgressBar: true,
+        toast: true,
+        position: 'top-end',
+    })
 
     // Refrescar la tabla
 

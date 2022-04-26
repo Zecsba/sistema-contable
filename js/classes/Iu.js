@@ -12,12 +12,6 @@ class UI {
 
         tipo === 'error' ? divMensaje.classList.add('card-error') : divMensaje.classList.add('card-success');
 
-        // if(tipo === 'error'){
-        //     divMensaje.classList.add('card-error');
-        // }else{
-        //     divMensaje.classList.add('card-success');
-        // }
-
         // Mensaje de error
         divMensaje.textContent = mensaje;
 
