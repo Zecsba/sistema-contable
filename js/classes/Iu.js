@@ -55,7 +55,6 @@ class UI {
 
             const div_fechaV = document.createElement('td');
             div_fechaV.textContent = `${fechaV}`;
-
             
             // Añade un boton para eliminar
             const btnEliminar = document.createElement('button');

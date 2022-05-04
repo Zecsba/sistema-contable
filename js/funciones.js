@@ -17,7 +17,8 @@ const factura = {
     fechaC: '',
     formaPago: '',
     totalPagar: '',
-    fechaV: ''
+    fechaV: '',
+    iva: ''
 }
 
 export function crearFactura(e){
@@ -28,7 +29,7 @@ export function crearFactura(e){
 export function nuevaFactura(e){
     e.preventDefault();
 
-    const {contacto, identificacion, telefono, fechaC, formaPago, totalPagar, fechaV} = factura
+    const {contacto, identificacion, telefono, fechaC, formaPago, totalPagar, fechaV, iva} = factura
 
     if(contacto===''  || identificacion==='' || telefono==='' || fechaC==='' || formaPago ==='' || formaPago == 0||totalPagar==='' || fechaV===''){
         // ui.imprimirAlerta('Todos los campos son obligatorios o no has selecionado forma de pago', 'error')
@@ -44,7 +45,7 @@ export function nuevaFactura(e){
         })
 
         return;
-    }
+    }    
 
     if(editanto){
         Swal.fire({
@@ -67,26 +68,27 @@ export function nuevaFactura(e){
 
         // Quitar modo edicion
         editanto = false;
-    }else{
+    } else {
+
         // generar id unico
 
-    factura.id = Date.now()
+        factura.id = Date.now()
 
-    // Crear una nueva factura
+        // Crear una nueva factura
 
-    administrarFacturas.agregarFactura({...factura})
+        administrarFacturas.agregarFactura({...factura})
 
-    // Mensaje de agregado
+        // Mensaje de agregado
 
-    Swal.fire({
-        title: 'Factura agregada correctamente',
-        icon: 'success',
-        confirmButtonText: 'Entiendo',
-        timer: 2000,
-        timerProgressBar: true,
-        toast: true,
-        position: 'top-end',
-    })
+        Swal.fire({
+            title: 'Factura agregada correctamente',
+            icon: 'success',
+            confirmButtonText: 'Entiendo',
+            timer: 2000,
+            timerProgressBar: true,
+            toast: true,
+            position: 'top-end',
+        })
 
     }  
 
@@ -107,6 +109,7 @@ export function reiniciarObjeto(){
     factura.formaPago = ''
     factura.plazo = ''
     factura.fechaV = ''
+    factura.totalPagar = ''
 }
 
 export function eliminarFactura(id){
@@ -159,5 +162,20 @@ export function editarFactura(editar){
 
     editanto = true;
 }
-
 ui.imprimirFactura(Facutra.facturas)
+
+
+const peticionData = async () => {
+    const res = await fetch('/data/iva.json')
+    const data = await res.json()
+    console.log(data)
+    
+    data.forEach(element => {
+        const option = document.createElement('option')
+        option.value = element.valor
+        option.innerHTML = element.forma
+
+        formaPagoInput.appendChild(option)
+    })};
+    
+peticionData()

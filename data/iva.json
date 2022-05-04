@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "forma": "Contado",
+        "valor": "contado"
+    },
+    {
+        "id": 2,
+        "forma": "Credito",
+        "valor": "credito"
+    },
+    {
+        "id": 3,
+        "forma": "Efectivo",
+        "valor": "efectivo"
+    }
+]
