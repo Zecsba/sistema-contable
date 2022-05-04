@@ -18,32 +18,24 @@
                 margin: auto 0;
                 font-size: 300%;
             }
-
-            .box-button{
-                display: flex;
-                align-items: center;
-                padding: 5px;
-
                 .boton-table{
                     width: 300px;
                     padding: 5px;
                     text-align: center;
                     border: 1px solid #ccc;
                     border-radius: 4px;
-                    background: rgb(144, 144, 144);
+                    background: $color3;
                     cursor: pointer;
                     text-decoration: none;
                     color: #000000;
+                    margin: auto;
                 }
     
                 .boton-table:hover{
-                    background: rgb(114, 114, 114);
                     color: rgb(251, 251, 251);
-                }
-            }
-            
+                }          
         }
-        
+    
         .table{
             margin: auto;
             border-collapse: collapse;

@@ -123,23 +123,19 @@ img {
     .main .box-table .box-table-text h2 {
       margin: auto 0;
       font-size: 300%; }
-    .main .box-table .box-table-text .box-button {
-      display: flex;
-      align-items: center;
-      padding: 5px; }
-      .main .box-table .box-table-text .box-button .boton-table {
-        width: 300px;
-        padding: 5px;
-        text-align: center;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background: #909090;
-        cursor: pointer;
-        text-decoration: none;
-        color: #000000; }
-      .main .box-table .box-table-text .box-button .boton-table:hover {
-        background: #727272;
-        color: #fbfbfb; }
+    .main .box-table .box-table-text .boton-table {
+      width: 300px;
+      padding: 5px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #6f8597;
+      cursor: pointer;
+      text-decoration: none;
+      color: #000000;
+      margin: auto; }
+    .main .box-table .box-table-text .boton-table:hover {
+      color: #fbfbfb; }
   .main .box-table .table {
     margin: auto;
     border-collapse: collapse;
@@ -166,16 +162,6 @@ img {
     .div_form .form .agregar {
       margin: 10px auto;
       padding: 5px; }
-      .div_form .form .agregar .button_form {
-        width: 100%;
-        height: 30px;
-        border-radius: 10px;
-        background-color: #6f8597;
-        color: black;
-        font-size: 1.2rem;
-        border: none;
-        outline: none;
-        cursor: pointer; }
     .div_form .form .first_head {
       width: 50%; }
       .div_form .form .first_head .box_input {
@@ -225,6 +211,95 @@ img {
     .div_form .form .agregar {
       width: 30%; }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111111bd;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s .9s;
+  --transform: translateY(-100vh);
+  --transition: transform .8s; }
+  .modal .modal__container {
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 3em 2.5em;
+    display: grid;
+    gap: 1em;
+    place-items: end;
+    grid-auto-columns: 100%;
+    transform: var(--transform);
+    transition: var(--transition); }
+    .modal .modal__container .form {
+      width: 100%;
+      display: flex;
+      flex-direction: column; }
+      .modal .modal__container .form label {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: .5em; }
+      .modal .modal__container .form input {
+        width: 100%;
+        padding: .5em;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: 1em;
+        font-size: 1.2em;
+        outline: none; }
+    .modal .modal__container #close {
+      font-size: 1.4rem;
+      position: fixed;
+      top: 1em;
+      right: 1em;
+      color: red;
+      cursor: pointer; }
+  .modal .modal__title {
+    font-size: 2.5rem;
+    margin: auto;
+    margin-bottom: 10px; }
+  .modal .modal__close {
+    text-decoration: none;
+    color: #fff;
+    background-color: #F26250;
+    padding: 1em 3em;
+    border: 1px solid;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s; }
+  .modal .modal__close:hover {
+    color: #F26250;
+    background-color: #fff; }
+
+.modal--show {
+  opacity: 1;
+  pointer-events: unset;
+  transition: opacity .6s;
+  --transform: translateY(0);
+  --transition: transform .8s .8s; }
+
+.button_form {
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #6f8597;
+  color: black;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  cursor: pointer; }
+
+.button_form:hover {
+  color: white; }
+
 .card-error {
   width: 70%;
   height: 100%;
@@ -272,3 +347,22 @@ img {
     width: 20px; }
   .btn-editar:hover {
     cursor: pointer; }
+
+.select {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+  width: 100%; }
+  .select select {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 4px 30px;
+    outline: 0;
+    border: 0px solid #ffffff;
+    border-radius: 11px;
+    background: #6f8597;
+    color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; }

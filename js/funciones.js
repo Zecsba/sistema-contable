@@ -1,7 +1,7 @@
 import Facutra from "./classes/Facturas.js";
 import UI from "./classes/Iu.js";
 
-import {contactoInput, identificacionInput, telefonoInput, fechaC_Input, formaPagoInput, plazoInput, fechaV_Input, button_form} from "./selectores.js";
+import {contactoInput, identificacionInput, telefonoInput, fechaC_Input, formaPagoInput, plazoInput, fechaV_Input, button_form, modal} from "./selectores.js";
 
 export const administrarFacturas = new Facutra()
 export const ui = new UI()
@@ -22,6 +22,8 @@ const factura = {
 }
 
 export function crearFactura(e){
+    modal.classList.add('modal--show')
+
     factura[e.target.name] = e.target.value
 }
 
@@ -29,7 +31,8 @@ export function crearFactura(e){
 export function nuevaFactura(e){
     e.preventDefault();
 
-    const {contacto, identificacion, telefono, fechaC, formaPago, totalPagar, fechaV, iva} = factura
+    
+    const {contacto, identificacion, telefono, fechaC, formaPago, totalPagar, fechaV} = factura
 
     if(contacto===''  || identificacion==='' || telefono==='' || fechaC==='' || formaPago ==='' || formaPago == 0||totalPagar==='' || fechaV===''){
         // ui.imprimirAlerta('Todos los campos son obligatorios o no has selecionado forma de pago', 'error')
@@ -133,6 +136,8 @@ export function eliminarFactura(id){
 }
 
 export function editarFactura(editar){
+
+    modal.classList.add('modal--show')
 
     const {contacto, identificacion, telefono, fechaC, formaPago, totalPagar, fechaV, id} = editar;
 

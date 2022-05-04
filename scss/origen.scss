@@ -18,11 +18,36 @@ body{
     margin: 20px
 }
 
+
+
 @import "_menu";
 @import "_card";
 @import "_table";
 @import "_crearFormVenta";
 @import "_colores";
+@import "_modal";
 @import "_js";  
 
 
+.select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+
+    select {
+        display: inline-block;
+        width: 100%;
+        cursor: pointer;
+        padding: 4px 30px;
+        outline: 0;
+        border: 0px solid #ffffff;
+        border-radius: 11px;
+        background: #6f8597;
+        color: white;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+}    
+ 

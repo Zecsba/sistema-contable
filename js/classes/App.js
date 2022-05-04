@@ -1,6 +1,6 @@
 import {crearFactura, nuevaFactura} from "../funciones.js"
 
-import {contactoInput, identificacionInput, telefonoInput, fechaC_Input, formaPagoInput, plazoInput, fechaV_Input, button_form} from "../selectores.js";
+import {contactoInput, identificacionInput, telefonoInput, fechaC_Input, formaPagoInput, plazoInput, fechaV_Input, button_form, close, modal, button} from "../selectores.js";
 
 class App{
     constructor(){
@@ -19,6 +19,15 @@ class App{
     fechaV_Input.addEventListener('input', crearFactura);
 
     button_form.addEventListener('submit', nuevaFactura);
+
+    // Modal
+
+    button.addEventListener('click', crearFactura);
+    close.addEventListener('click', (e) => {
+        e.preventDefault()
+        modal.classList.remove('modal--show')
+    });
+
     }
 }
 

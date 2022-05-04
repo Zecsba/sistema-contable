@@ -12,3 +12,9 @@ export const plazoInput = document.querySelector('#totalPagar')
 export const fechaV_Input = document.querySelector('#fechaV')
 
 export const button_form = document.querySelector('#validar');
+
+// Modal
+
+export const close = document.querySelector('#close');
+export const modal = document.querySelector('.modal')
+export const button = document.querySelector('#boton');
