@@ -21,7 +21,6 @@ class App{
     button_form.addEventListener('submit', nuevaFactura);
 
     // Modal
-
     button.addEventListener('click', crearFactura);
     close.addEventListener('click', (e) => {
         e.preventDefault()
